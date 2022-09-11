@@ -114,7 +114,7 @@ def details_print():
 	response = requests.post("http://127.0.0.1:5000/details_ep", data={"faculty":name})
 	html = weasyprint.HTML(string=response.text)
 	html.write_pdf("tmp.pdf")
-	return send_from_directory("/home/laksh/Projects/Smart-Invigilator-Allotment-Tool/", "tmp.pdf", as_attachment=True)
+	return send_from_directory("/home/msc/Projects/Smart-Invigilator-Allotment-Tool/", "tmp.pdf", as_attachment=True)
 
 @app.route("/details_all", methods=["GET"])
 def details_all():
@@ -125,11 +125,11 @@ def details_all():
 		html+=response.text
 	html = weasyprint.HTML(string=html)
 	html.write_pdf("tmp.pdf")
-	return send_from_directory("/home/laksh/Projects/Smart-Invigilator-Allotment-Tool/", "tmp.pdf", as_attachment=True)
+	return send_from_directory("/home/msc/Projects/Smart-Invigilator-Allotment-Tool/", "tmp.pdf", as_attachment=True)
 
 @app.route("/jquery-3.1.1-min.js")
 def jquery_js():
-	return send_from_directory("/home/laksh/Projects/Smart-Invigilator-Allotment-Tool", "jquery-3.1.1-min.js")
+	return send_from_directory("/home/msc/Projects/Smart-Invigilator-Allotment-Tool", "jquery-3.1.1-min.js")
 """
 Details to store per user:
 name
