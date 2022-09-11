@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+    ul li{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+    }
+    body{
+        background-color:rgb(154, 192, 224);
+    }
+    nav{
+        margin:5x;
+        
+        background-color: white;
+        font-family:'Times New Roman', Times, serif;
+        font-size:40pt;
+        padding:50x;
+        color:red;
+        font-style:oblique;
+        border: 4px solid black;
+    }
+</style>
+<title>Home Page</title>
+{% endblock %}
+{% block body %}
+<nav>
+    <label>Smart Invigilator Allotment Tool</label> 
+ </nav>
+<ul>
+    <li>HoD = {{ sessions[0][1] }}</li>
+
+<li>Squad = {{ sessions[0][0] }}</li>
+<li>Backup Faculties = {{ sessions[0][2] }}</li>
+
+</ul>
+{% for session in sessions[1:7] %}
+<ul>
+<li>DySp = {{session[0]}}</li>
+<li>Invigilators = {{session[1]}}</li>
+<li>Relievers = {{session[2]}}</li>
+</ul> 
+{% endfor %}
+{% endblock %}

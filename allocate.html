@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block head %}
+<title> Allocate </title>
+
+<style>
+    body {
+
+        background-color:lightblue;
+    
+        object-fit: cover;
+}
+
+/*
+    .container{
+        margin-top: 50px;
+        margin-left:100px;
+        margin-bottom: 250px;
+        margin-right: 100px;
+        padding:100px;
+        background-image: linear-gradient(#6190E8,#A7BFE8);
+        text-align: center;
+    }
+    */
+    
+    .inside_container input{
+        padding-top: 1px;
+        
+        padding-bottom: 15px;
+        color:black;
+        text-decoration: none;
+        font-size: 25pt;
+        font-family: 'Times New Roman', Times, serif;
+        border:solid black 4px;
+    
+    }
+    .inside_container{
+      margin:auto;
+     
+      padding-left: 300px;
+      padding-top: 60px;
+    }
+ 
+    .inside_container button a{
+       text-decoration: none;
+       padding: 15px;
+       
+    }
+    div button {
+        font-size: 30pt;
+    }
+    nav{
+        margin:5x;
+        
+        background-color: white;
+        font-family:'Times New Roman', Times, serif;
+        font-size:40pt;
+        padding:50x;
+        color:red;
+        font-style:oblique;
+        border: 4px solid black;
+    }
+</style>
+
+<script src="jquery-3.1.1-min.js"></script>
+{% endblock %}
+{% block body %}
+<script>
+$(document).ready(function(){
+$("input").click(function(){
+    var text = $(this).attr('id');
+
+    $.ajax({
+      url: "{{url_for('do_allocation')}}",
+      type: "get",
+      data: {jsdata: text},
+      success: function(response) {
+        $("#details").html(response);
+      },
+      error: function(xhr) {
+        console.log("Some Error occured")
+      }
+    });
+});
+});
+</script>
+
+<nav>
+   <label>Smart Invigilator Allotment Tool</label>
+</nav>
+<div class="container">
+    
+  <!---
+    <table class="inside_container">
+    <tr>
+    <td><input type='submit' id='init' > Allocation init</td>
+    <td><input type='submit' id='comman'>Allocate comman</td>
+    <td><input type='submit' id='session'>Allocate Next</td>
+    </tr>
+    </table>
+    --->
+    <div class="inside_container">
+     <!--
+      <button type="button" class="btn btn-primary" id='init'>Allocate init<br></button>
+      <button type="button" class="btn btn-primary" id='comman'>Allocate comman<br></button>
+      <button type="button" class="btn btn-primary" id='session'>Allocate Next<br></button>
+     -->
+      
+      <input type='button' id='init' value="Allocation init">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type='submit' id='comman' value="Allocate comman"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type='submit' id='session' value="Allocate Next">
+      
+  </div>
+
+
+
+</div>
+
+
+
+
+
+<br><br>
+<div id='details'></div>
+{% endblock %}

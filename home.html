@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+    body {
+
+        background-image: linear-gradient(#C33764,#1D2671);
+
+}
+    .container{
+        margin-top: 80px;
+        margin-left:250px;
+        margin-bottom: 50px;
+        margin-right: 250px;
+        padding:50px;
+        background-image: linear-gradient(#6190E8,#A7BFE8);
+        text-align: center;
+    }
+    .inside_container button{
+        padding-top: 10px;
+        
+        padding-bottom: 10px;
+    
+    }
+    . {
+        padding-bottom: 10px;
+    
+    }
+    .inside_container button a{
+       text-decoration: none;
+       padding: 10px;
+       
+    }
+    div button {
+        font-size: 25pt;
+    }
+    nav{
+        margin:5x;
+        
+        background-color: white;
+        font-family:'Times New Roman', Times, serif;
+        font-size:40pt;
+        padding:50x;
+        color:red;
+        font-style:oblique;
+        border: 4px solid black;
+    }
+</style>
+<title>Smart Invigilator Allotment Tool</title>
+{% endblock %}
+{% block body  %}
+<nav>
+   <label>Smart Invigilator Allotment Tool</label> 
+</nav>
+<div class="container">
+    
+<div class="inside_container">
+    <button type="button" class="btn btn-primary"><a href="/allocate" >Allocation with buttons</a></button><br><br><br>
+    <button type="button" class="btn btn-primary"><a href="/allocate_all" >Automatic allocation</a><br></button><br><br><br>
+    <button type="button" class="btn btn-primary"><a href="/input"> Faculty data</a><br></button><br><br><br>
+    <button type="button" class="btn btn-primary"><a href="/details"class="btn btn-primary">Allocation Chart with print</a><br></button><br><br><br>
+
+
+</div>
+
+</div>
+
+{% endblock %}

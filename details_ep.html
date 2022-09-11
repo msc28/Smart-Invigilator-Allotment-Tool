@@ -1,0 +1,22 @@
+<style>
+table, th, td {
+border : 1px solid black;
+border-collapse : collapse;
+padding: 15px;
+margin: 5px;
+}
+</style>
+<h3>{{result[0][0]}}</h3>
+<table>
+<tr><th>Role</th>
+<th>Session</th>
+<th>Room no</th></tr>
+{% for row in result %}
+<tr>
+<td>{{row[1]}}</td>
+<td>{{row[2]}}</td>
+<td>{{row[3]}}</td>
+</tr>
+{% endfor %}
+</table>
+<br>

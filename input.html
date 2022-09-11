@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+    tr td{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+
+    }
+    body{
+        background-color: lightgoldenrodyellow;
+        
+    }
+    nav{
+        margin:5x;
+        
+        background-color: white;
+        font-family:'Times New Roman', Times, serif;
+        font-size:40pt;
+        padding:50x;
+        color:red;
+        font-style:oblique;
+        border: 4px solid black;
+    }
+</style>
+<title>Input Faculties</title>
+{% endblock %}
+
+{% block body %}
+<nav>
+    <label>Smart Invigilator Allotment Tool</label> 
+ </nav>
+<table>
+    <br>
+    <br>
+<tr><td> Name= Dr. H. V. Ravish Aradhya </td><td> Email= ravisharadhya@rvce.edu.in </td><td> Designation= HoD </td></tr>
+    {% for fac in fac_list %}
+
+<tr><td> Name={{ fac[0] }}</td><td> Email={{fac[1]}}</td><td> Designation={{fac[2]}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

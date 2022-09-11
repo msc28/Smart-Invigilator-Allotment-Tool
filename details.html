@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+  .{
+    font-size: 25pt;
+    margin:0;
+    padding:0;
+  }
+  input{
+    font-size: 15pt;
+  }
+  body {
+
+     background-image: linear-gradient(#24c6dc,#514a98);
+     height:1000px;
+}
+  .container{
+      margin-top: 100px;
+      margin-left:230px;
+      margin-bottom: 100px;
+      margin-right: 230px;
+      padding:20px;
+      background-color: aliceblue;
+      text-align: center;
+      border: solid black 3pt;
+  }
+ 
+  .inside_container{
+     text-decoration: none;
+     padding: 15px;
+     
+  }
+  
+  nav{
+      margin:5x;
+      
+      background-color: white;
+      font-family: 'Times New Roman', Times, serif;
+      font-size:40pt;
+      padding:50x;
+      color:red;
+      font-style:oblique;
+      border: 4px solid black;
+  }
+</style>
+<title>Details</title>
+<script src="jquery-3.1.1-min.js"></script>
+{% endblock %}
+{% block body %}
+<script>
+$(document).ready(function(){
+$("#get_details").click(function(event){
+event.preventDefault();
+   var text = $("#textbox")[0].value;
+
+    $.post("{{url_for('details_ep')}}","faculty="+text,
+      function(data) {
+        $("#details").html(data);
+      }
+    );
+});
+});
+</script>
+<!--
+<form method="post" action="/details_ep">
+<input list="faculty" name="faculty" id="textbox" autocomplete="off">
+ <datalist id="faculty">
+ {% for fac in fac_list %}
+ <option value="{{ fac.name }}">
+ {% endfor %}
+ </datalist>
+<input type="submit" value="Get details" id="get_details">
+<input type="submit" value="Print details" id="print_details" formaction="/details_print" formmethod="post" autocomplete="off">
+</form>
+
+-->
+<nav>
+  <label>Smart Invigilator Allotment Tool</label> 
+</nav>
+<div class="container">
+   
+<div class="inside_container">
+  <form method="post" action="/details_ep">
+    <input list="faculty" name="faculty" id="textbox" autocomplete="off">
+     <datalist id="faculty">
+     {% for fac in fac_list %}
+     <option value="{{ fac.name }}">
+     {% endfor %}
+     </datalist>
+    <input type="submit" value="Get details" id="get_details">
+    <input type="submit" value="Print details" id="print_details" formaction="/details_print" formmethod="post" autocomplete="off">
+    </form>
+</div>
+
+</div>
+
+
+<div id="details"></div>
+{% endblock %}

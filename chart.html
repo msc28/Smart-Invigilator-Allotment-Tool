@@ -1,0 +1,18 @@
+<style>
+   ul li{
+        font-size: 12pt;
+
+    }
+</style>
+<ul>
+<li>HoD = {{ sessions[0][1] }}</li>
+<li>Squad = {{ sessions[0][0] }}</li>
+<li>Backup = {{ sessions[0][2] }}</li>
+</ul>
+{% for session in sessions[1:] %}
+<ul>
+<li>DySp = {{session[0]}}</li>
+<li>Invigilators = {{session[1]}}</li>
+<li>Relievers = {{session[2]}}</li>
+</ul> 
+{% endfor %}
